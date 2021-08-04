@@ -1,7 +1,13 @@
+from decimal import Decimal
+
 import pymssql
-import numpy as np
+import numpy as np   # ndarray
 from matplotlib import pyplot as plt
 # sin numpy
+
+numero=20.4
+numero2=Decimal(20.4)
+
 numeros=range(1,10)   # 1..10
 resultado=[]
 for numero in numeros:
@@ -9,7 +15,7 @@ for numero in numeros:
 
 # con numpy
 x: np.ndarray = np.arange(1,11) # 1..10
-y = x*2 # ???
+y = x*2 # 2,4,6,8,10...
 
 
 
@@ -28,14 +34,14 @@ ejesy=[]
 for prod in todos:
     print("id:{0},nombre={1},precio={2}"
           .format(prod.get('sku'),prod.get('name'),prod.get('unitprice')))
-    ejesx.append(prod.get('sku'))
+    ejesx.append(prod.get('name')[:5])
     ejesy.append(prod.get('unitprice'))
 
 
 fig=plt.figure()
 # ax = fig.add_axes([0,0,1,1])
 plt.bar(ejesx,ejesy)
-plt.xticks(ejesx, ejesy)
+plt.xticks(ejesx, ejesx)
 plt.show()
 
 
